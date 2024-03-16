@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react';
+import "./App.css";
+import TotalElements from './components/TotalElements'
+import Form from './components/Form'
+import { useState } from "react";
 
 function App() {
+  let [ary, setary] = useState([])
+  function data(da) {
+    let ary1 = [...ary, da]
+    setary(ary1)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Form data={data} />
+      <TotalElements arry={ary} />
     </div>
-  );
-}
+  )
+};
 
 export default App;
